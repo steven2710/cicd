@@ -30,7 +30,7 @@ podTemplate(label: 'staging',
 
     stage ('Run Acceptance Tests') {
       build job: 'notepad-acceptance-test', parameters: [
-        [$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'master'],
+        [$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'main'],
         [$class: 'StringParameterValue', name: 'NOTEPAD_URL', value: 'http://notepad-service-staging:8080']
       ]
     }
