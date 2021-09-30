@@ -8,7 +8,7 @@ podTemplate(label: 'performance',
 {
   node ('performance') {
     stage('Checkout the notepad Performance Test') {
-      git credentialsId: 'github-private-key-secret', url: 'git@github.com:phuongpham247/testing.git', branch: 'master'
+      git credentialsId: 'github-private-key-secret', url: 'git@github.com:phuongpham247/testing.git', branch: 'main'
     }
 
     stage('Run Performance Tests') {
