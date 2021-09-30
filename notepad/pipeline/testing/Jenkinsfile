@@ -24,7 +24,7 @@ podTemplate(label: 'testing',
 
     dir('app') {
       stage('Checkout the notepad') {
-        git credentialsId: 'bitbucket-app-password', url: 'https://annpb@bitbucket.org/annpb/notepad.git', branch: "${GIT_BRANCH}"
+        git credentialsId: 'github-private-key-secret', url: 'git@github.com:phuongpham247/notepad.git', branch: "${GIT_BRANCH}"
       }
 
       stage('Run Unit/Integration Tests, generate the jar artifact and push it to Artifactory') {
