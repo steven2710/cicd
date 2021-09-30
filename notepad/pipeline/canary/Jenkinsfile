@@ -45,7 +45,7 @@ podTemplate(label: 'canary',
 
     dir('app') {
       stage('Checkout the notepad') {
-        git credentialsId: 'bitbucket-app-password', url: 'https://annpb@bitbucket.org/annpb/notepad.git', branch: 'master'
+        git credentialsId: 'github-private-key-secret', url: 'git@github.com:phuongpham247/notepad.git', branch: 'master'
       }
 
       parallel (
