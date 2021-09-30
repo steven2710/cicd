@@ -4,8 +4,8 @@ podTemplate(label: 'continuous-integration',
   ])
 {
   node ('continuous-integration') {
-    stage ('Create a testing environment for running Unit/Integration/Acceptance Tests against branch master') {
-      build job: 'notepad-testing', parameters: [[$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'master']]
+    stage ('Create a testing environment for running Unit/Integration/Acceptance Tests against branch main') {
+      build job: 'notepad-testing', parameters: [[$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'main']]
     }
 
     stage('Destroy the previously created Testing environment') {
