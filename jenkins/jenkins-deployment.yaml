@@ -27,12 +27,12 @@ spec:
         volumeMounts:
         - name: jenkins-volume
           mountPath: /var/jenkins_home
-        - name: bitbucket-private-key-volume
+        - name: github-private-key-volume
           mountPath: /var/jenkins_home/.ssh
           readOnly: true
       volumes:
       - name: jenkins-volume
         emptyDir: {}
-      - name: bitbucket-private-key-volume
+      - name: github-private-key-volume
         secret:
-          secretName: bitbucket-private-key-secret
+          secretName: github-private-key-secret
