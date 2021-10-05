@@ -7,7 +7,7 @@ podTemplate(label: 'release',
   volumes: [
     hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
     secretVolume(mountPath: '/etc/maven/', secretName: 'maven-settings-secret'),
-    secretVolume(mountPath: '/home/jenkins/.ssh', secretName: 'bitbucket-private-key-secret')
+    secretVolume(mountPath: '/home/jenkins/.ssh', secretName: 'github-private-key-secret')
   ],
   envVars: [
     secretEnvVar(key: 'DOCKERHUB_USERNAME', secretName: 'dockerhub-username-secret', secretKey: 'USERNAME'),
@@ -33,11 +33,11 @@ podTemplate(label: 'release',
           mkdir -p /root/.ssh
           cp /home/jenkins/.ssh/id_rsa /root/.ssh/id_rsa
           chmod 400 /root/.ssh/id_rsa
-          ssh-keyscan -t rsa bitbucket.org >> /root/.ssh/known_hosts
-          git clone git@bitbucket.org:annpb/notepad.git
+          ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
+          git clone git@github.com:phuongpham247/notepad.git
           cd notepad
-          git config --global user.email "ngphban@gmail.com"
-          git config --global user.name "An Nguyen"
+          git config --global user.email "minhphuongpham247@gmail.com"
+          git config --global user.name "Phuong Pham"
           mvn -B -s /etc/maven/settings.xml release:prepare "-DreleaseVersion=${RELEASE_VERSION}" "-DdevelopmentVersion=${NEW_VERSION}" release:perform -Darguments="-DskipTests"
         """
       }
